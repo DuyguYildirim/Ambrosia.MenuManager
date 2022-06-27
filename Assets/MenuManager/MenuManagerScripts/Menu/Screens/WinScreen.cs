@@ -9,7 +9,7 @@ namespace MenuManager.Menu.Screens
         {
             base.OnBackPressed();
             MainMenu.Open();
-            //LevelLoader.LoadNextLevel();
+            //LevelServiceLocator.Instance.ActiveLoader.LoadNextLevel();
         }
     }
 }

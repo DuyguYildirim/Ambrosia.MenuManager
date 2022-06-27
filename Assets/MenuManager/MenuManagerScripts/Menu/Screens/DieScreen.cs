@@ -1,5 +1,4 @@
 using MenuManager.Menu.Core;
-using MenuManager.Menu.Screens;
 
 namespace EasyClap.Game.Menus
 {
