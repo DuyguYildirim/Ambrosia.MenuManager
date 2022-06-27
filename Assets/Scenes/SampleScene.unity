@@ -420,25 +420,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4744792711548930862, guid: 78909ff71b0d3524b9537a37b948cc8e, type: 3}
-      propertyPath: menuParent
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744792711548930862, guid: 78909ff71b0d3524b9537a37b948cc8e, type: 3}
-      propertyPath: otherMenuPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744792711548930862, guid: 78909ff71b0d3524b9537a37b948cc8e, type: 3}
-      propertyPath: otherMenuPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 6608210523824998031, guid: fdbcffe86e6cedf4f812d0062ad10f5c, type: 3}
-    - target: {fileID: 4744792711548930862, guid: 78909ff71b0d3524b9537a37b948cc8e, type: 3}
-      propertyPath: otherMenuPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 2698194264270851787, guid: 27998ce085c57d145a0ee72b6e1628c7, type: 3}
-    - target: {fileID: 4744792711548930862, guid: 78909ff71b0d3524b9537a37b948cc8e, type: 3}
-      propertyPath: otherMenuPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 7927630705575593349, guid: da0ee8e8e270c4b4aaf4b13bf3530b35, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78909ff71b0d3524b9537a37b948cc8e, type: 3}

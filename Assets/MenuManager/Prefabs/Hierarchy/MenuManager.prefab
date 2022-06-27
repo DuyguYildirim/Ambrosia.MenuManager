@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac44c1c86a3cbaa43ae487806279972e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuParent: {fileID: 0}
   mainMenuPrefab: {fileID: 440999696, guid: 2143615c8bc826340a20f59f351655be, type: 3}
-  gameMenuPrefab: {fileID: 6608210523824998031, guid: fdbcffe86e6cedf4f812d0062ad10f5c, type: 3}
-  pauseMenuPrefab: {fileID: 2021672781, guid: 4e216e9c46249fd47ae1231c7a3ffe0d, type: 3}
-  winScreenPrefab: {fileID: 2698194264270851787, guid: 27998ce085c57d145a0ee72b6e1628c7, type: 3}
-  dieScreenPrefab: {fileID: 7927630705575593349, guid: da0ee8e8e270c4b4aaf4b13bf3530b35, type: 3}
-  _menuParent: {fileID: 0}
+  otherMenuPrefabs:
+  - {fileID: 6608210523824998031, guid: fdbcffe86e6cedf4f812d0062ad10f5c, type: 3}
+  - {fileID: 2698194264270851787, guid: 27998ce085c57d145a0ee72b6e1628c7, type: 3}
+  - {fileID: 7927630705575593349, guid: da0ee8e8e270c4b4aaf4b13bf3530b35, type: 3}
