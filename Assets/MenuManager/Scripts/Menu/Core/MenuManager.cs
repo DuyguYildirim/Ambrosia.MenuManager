@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MenuManager.Menu.Core
+namespace MenuManager.Scripts.Menu.Core
 {
     public class MenuManager : MonoBehaviour
     {

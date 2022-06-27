@@ -1,7 +1,7 @@
-﻿using MenuManager.Menu.Core;
+﻿using MenuManager.Scripts.Menu.Core;
 using UnityEngine;
 
-namespace MenuManager.Menu.Screens
+namespace MenuManager.Scripts.Menu.Screens
 {
     public class MainMenu : Menu<MainMenu>
     {

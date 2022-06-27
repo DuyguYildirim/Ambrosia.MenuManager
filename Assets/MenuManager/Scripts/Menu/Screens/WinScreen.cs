@@ -1,6 +1,6 @@
-﻿using MenuManager.Menu.Core;
+﻿using MenuManager.Scripts.Menu.Core;
 
-namespace MenuManager.Menu.Screens
+namespace MenuManager.Scripts.Menu.Screens
 {
     public class WinScreen : Menu<WinScreen>
     {

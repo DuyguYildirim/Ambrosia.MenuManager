@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MenuManager.Menu.Core
+namespace MenuManager.Scripts.Menu.Core
 {
     [RequireComponent(typeof(Canvas))]
     public abstract class Menu<T> : Menu where T : Menu<T>
