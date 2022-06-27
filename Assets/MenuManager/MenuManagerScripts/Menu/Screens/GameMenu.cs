@@ -1,7 +1,6 @@
 ﻿using MenuManager.Menu.Core;
-using MenuManager.Menu.Screens;
 
-namespace EasyClap.Game.Menus
+namespace MenuManager.Menu.Screens
 {
     public class GameMenu : Menu<GameMenu>
     {

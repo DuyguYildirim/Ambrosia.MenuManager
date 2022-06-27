@@ -1,5 +1,4 @@
-﻿using EasyClap.Game.Menus;
-using MenuManager.Menu.Core;
+﻿using MenuManager.Menu.Core;
 
 namespace MenuManager.Menu.Screens
 {
@@ -9,7 +8,6 @@ namespace MenuManager.Menu.Screens
         {
             base.OnBackPressed();
             MainMenu.Open();
-            //LevelServiceLocator.Instance.ActiveLoader.LoadNextLevel();
         }
     }
 }

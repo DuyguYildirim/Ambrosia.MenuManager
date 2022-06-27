@@ -1,6 +1,6 @@
 using MenuManager.Menu.Core;
 
-namespace EasyClap.Game.Menus
+namespace MenuManager.Menu.Screens
 {
     public class DieScreen : Menu<DieScreen>
     {
@@ -8,7 +8,6 @@ namespace EasyClap.Game.Menus
         {
             base.OnBackPressed();
             MainMenu.Open();
-            //LevelServiceLocator.Instance.ActiveLoader.ReloadCurrentLevel();
         }
     }
 }
