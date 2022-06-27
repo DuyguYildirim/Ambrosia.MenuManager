@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.ambrosia.menumanager": {
-      "version": "file:Ambrosia.MenuManager",
+      "version": "file:com.ambrosia.menumanager",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
