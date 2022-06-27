@@ -8,8 +8,8 @@ namespace EasyClap.Game.Menus
         public void OnRestartPressed()
         {
             base.OnBackPressed();
-            //LevelServiceLocator.Instance.ActiveLoader.ReloadCurrentLevel();
             MainMenu.Open();
+            //LevelServiceLocator.Instance.ActiveLoader.ReloadCurrentLevel();
         }
     }
 }
