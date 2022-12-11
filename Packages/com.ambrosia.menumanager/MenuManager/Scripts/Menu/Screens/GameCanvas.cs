@@ -1,8 +1,8 @@
-﻿using MenuManager.Scripts.Menu.Core;
+﻿using Ambrosia.MenuManager;
 
 namespace MenuManager.Scripts.Menu.Screens
 {
-    public class GameMenu : Menu<GameMenu>
+    public class GameCanvas : Menu<GameCanvas>
     {
         public void WinScreenOpen()
         {

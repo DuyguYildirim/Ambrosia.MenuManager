@@ -1,96 +1,99 @@
-using System.Collections.Generic;
+using System;
+//using EasyClap.Seneca.StateMachine;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Assertions;
 
-namespace MenuManager.Scripts.Menu.Core
+namespace Ambrosia.MenuManager
 {
     public class MenuManager : MonoBehaviour
-    {
-        [SerializeField] private Transform menuParent;
-        [SerializeField] private Menu mainMenuPrefab;
-        [SerializeField] private Menu[] otherMenuPrefabs;
+    { 
+        [SerializeField] private Menu[] menus;
+        [SerializeField] private bool hasInitialMenu;
+        [SerializeField, ShowIf(nameof(hasInitialMenu))] private int initialMenuIndex;
+        
+        private static MenuManager _instance;
 
-        private readonly Stack<Menu> _menuStack = new Stack<Menu>();
+        public static MenuManager Instance
+        {
+            get
+            {
+                if (!_instance)
+                {
+                    _instance = FindObjectOfType<MenuManager>(true);
+                }
 
-        public static MenuManager Instance { get; private set; }
+                return _instance;
+            }
+        }
+        
+        private Menu _activeMenu;
 
         private void Awake()
         {
-            if (Instance != null)
+            if (_instance && _instance != this)
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                Instance = this;
-                InitializeMenus();
-                DontDestroyOnLoad(gameObject);
-            }
-        }
-
-        private void OnDestroy()
-        {
-            if (Instance == this)
-            {
-                Instance = null;
-            }
-        }
-
-        private void InitializeMenus()
-        {
-            if (menuParent == null)
-            {
-                var menuParentObject = new GameObject("Menus");
-                menuParent = menuParentObject.transform;
-            }
-
-            DontDestroyOnLoad(menuParent.gameObject);
-
-            foreach (var menuPrefab in otherMenuPrefabs)
-            {
-                var menuInstance = Instantiate(menuPrefab, menuParent);
-                menuInstance.gameObject.SetActive(false);
-            }
-
-            var mainMenuInstance = Instantiate(mainMenuPrefab, menuParent);
-            OpenMenu(mainMenuInstance);
-        }
-
-        public void OpenMenu(Menu menuInstance)
-        {
-            if (menuInstance == null)
-            {
-                Debug.LogError("MENUMANAGER OpenMenu ERROR: invalid menu");
+                Destroy(this);
                 return;
             }
 
-            if (_menuStack.Count > 0)
+            _instance = this;
+            
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            Assert.IsTrue(!hasInitialMenu || (initialMenuIndex >= 0 && initialMenuIndex < menus.Length));
+            
+            for (int i = 0; i < menus.Length; i++)
             {
-                foreach (var menu in _menuStack)
+                var menu = menus[i];
+                menus[i].gameObject.SetActive(true);
+                menus[i].gameObject.SetActive(false);
+
+                if (hasInitialMenu && initialMenuIndex == i)
                 {
-                    menu.gameObject.SetActive(false);
+                    OpenMenuInternal(menu);
                 }
             }
-
-            menuInstance.gameObject.SetActive(true);
-            _menuStack.Push(menuInstance);
         }
 
-        public void CloseMenu()
+        public void OpenMenu(Menu menu)
         {
-            if (_menuStack.Count == 0)
+            Assert.IsNotNull(menu);
+            if (_activeMenu != menu)
             {
-                Debug.LogError("MENUMANAGER CloseMenu ERROR: No menus in stack!");
-                return;
+                OpenMenuInternal(menu);
             }
+        }
 
-            var topMenu = _menuStack.Pop();
-            topMenu.gameObject.SetActive(false);
-
-            if (_menuStack.Count > 0)
+        public void CloseMenu(Menu menu)
+        {
+            Assert.IsTrue(_activeMenu == menu);
+            CloseMenuInternal();
+        }
+        
+        private void OpenMenuInternal(Menu menu)
+        {
+            if (_activeMenu)
             {
-                var nextMenu = _menuStack.Peek();
-                nextMenu.gameObject.SetActive(true);
+                CloseMenuInternal();
             }
+            
+            Assert.IsNotNull(menu);
+            
+            _activeMenu = menu;
+            _activeMenu.gameObject.SetActive(true);
+            _activeMenu.OnOpen();
+        }
+
+        private void CloseMenuInternal()
+        {
+            Assert.IsNotNull(_activeMenu);
+            _activeMenu.gameObject.SetActive(false);
+            _activeMenu.OnClose();
+            _activeMenu = null;
         }
     }
 }

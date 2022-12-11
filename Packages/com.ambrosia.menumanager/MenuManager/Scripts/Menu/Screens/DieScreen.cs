@@ -1,4 +1,4 @@
-using MenuManager.Scripts.Menu.Core;
+using Ambrosia.MenuManager;
 
 namespace MenuManager.Scripts.Menu.Screens
 {
@@ -6,8 +6,7 @@ namespace MenuManager.Scripts.Menu.Screens
     {
         public void OnRestartPressed()
         {
-            base.OnBackPressed();
-            MainMenu.Open();
+            MainCanvas.Open();
         }
     }
 }
